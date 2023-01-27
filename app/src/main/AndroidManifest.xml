@@ -26,6 +26,11 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".NewListTasks"
+            android:parentActivityName=".MainActivity"
+
+            />
+        <activity
             android:name=".NewTask"
             android:parentActivityName=".MainActivity"
 

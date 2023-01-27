@@ -12,7 +12,11 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.general_page)
         }
-    fun onClick(view: View?) {
+    fun openAddList(view: View?) {
+        val intent = Intent(this, NewListTasks::class.java)
+        startActivity(intent)
+    }
+    fun openAddTask(view: View?) {
         val intent = Intent(this, NewTask::class.java)
         startActivity(intent)
     }
