@@ -11,4 +11,6 @@
     <color name="background">#212227</color>
     <color name="menu_down">#303136</color>
     <color name="text">#C3C4CA</color>
+    <color name="dialog_background">#4C4E56</color>
+    <color name="placeholder">#6A6A6B</color>
 </resources>
