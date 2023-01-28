@@ -19,8 +19,10 @@ class TaskModel {
     var description: String = ""
 
     @ColumnInfo
-    var is_performed: Boolean = true
+    var is_performed: Boolean = false
 
+    @ColumnInfo
+    var is_chosen: Boolean = false
 
     @ColumnInfo
     var number_list: Int = 0
