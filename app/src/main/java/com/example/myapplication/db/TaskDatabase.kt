@@ -1,4 +1,4 @@
 package com.example.myapplication.db
 
-class TaskDatabase {
+abstract class TaskDatabase {
 }
