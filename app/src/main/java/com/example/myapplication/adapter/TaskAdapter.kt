@@ -21,8 +21,8 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.itemView.task_title.text = listTask[position].title_task
-        holder.itemView.checkBox_is_chosen.isChecked = listTask[position].is_chosen
-        holder.itemView.checkBox_is_performed.isChecked = listTask[position].is_performed
+        holder.itemView.checkBox_is_chosen.isChecked = listTask[position].chosen
+        holder.itemView.checkBox_is_performed.isChecked = listTask[position].performed
     }
 
     override fun getItemCount(): Int {
