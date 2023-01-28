@@ -38,7 +38,6 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-android:checked=""
             android:theme="@style/CheckboxStyle"
             app:layout_constraintBottom_toBottomOf="@id/checkBox"
             app:layout_constraintStart_toStartOf="parent"

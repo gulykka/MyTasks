@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.general_page)
+        setContentView(R.layout.activity_main)
         }
     fun openAddList(view: View?) {
         val intent = Intent(this, NewListTasks::class.java)
