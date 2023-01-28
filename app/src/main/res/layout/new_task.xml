@@ -13,6 +13,7 @@
         android:background="@drawable/back"
         app:backgroundTint="#FFFFFF"
         app:backgroundTintMode="multiply"
+        android:onClick="closeNewTask"
         />
     <Button
         android:layout_width="30dp"
