@@ -13,4 +13,5 @@
     <color name="text">#C3C4CA</color>
     <color name="dialog_background">#4C4E56</color>
     <color name="placeholder">#6A6A6B</color>
+    <color name="chosen">#7EA8DF</color>
 </resources>

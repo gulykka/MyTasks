@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CheckboxStyle" parent="Theme.MaterialComponents">
+        <item name="colorControlActivated">@color/chosen</item>
+        <item name="colorControlNormal">@color/text</item>
+    </style>
+
+
+</resources>
