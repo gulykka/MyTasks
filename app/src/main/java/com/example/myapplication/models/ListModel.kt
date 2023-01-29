@@ -8,13 +8,13 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "list_table")
-class ListModel {
+class ListModel (
 
 
     @PrimaryKey(autoGenerate = true)
-    var id_list: Int = 1
+    var id_list: Int = 1,
 
     @ColumnInfo
     var title_list: String = ""
 
-}
+)

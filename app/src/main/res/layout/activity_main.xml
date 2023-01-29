@@ -17,6 +17,5 @@
         app:navGraph="@navigation/nav_graf"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
-
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

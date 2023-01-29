@@ -1,5 +1,7 @@
 package com.example.myapplication.adapter
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
         return listTask.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setList(list:List<TaskModel>) {
         listTask = list
         notifyDataSetChanged()

@@ -8,6 +8,7 @@
     tools:context=".screens.addtask.AddTaskFragment">
 
     <Button
+        android:id="@+id/button_back"
         android:layout_width="50dp"
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,40 +29,27 @@
         app:backgroundTint="#FFFFFF"
         app:backgroundTintMode="multiply"
         />
-    <Button
-        android:id="@+id/chosen_task"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:layout_constraintTop_toBottomOf="@id/newlist"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/chosing_task"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/calendar"
-        app:backgroundTintMode="multiply"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="20dp"
 
 
-        />
     <Button
         android:id="@+id/calendar"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        app:layout_constraintStart_toEndOf="@+id/chosen_task"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_is_chosen"
         android:background="@drawable/calendar"
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/newlist"
+        app:layout_constraintTop_toBottomOf="@id/et_new_task_desc"
         app:backgroundTintMode="multiply"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/chosen_task"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBox_is_chosen"
         />
 
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/newlist"
+        android:layout_height="500dp"
+        app:layout_constraintTop_toBottomOf="@id/et_new_task_title"
         app:layout_constraintBaseline_toBottomOf="parent"
         android:background="@color/menu_down"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,10 +67,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/newlist"
+
         />
     <EditText
-        android:id="@+id/newlist"
+        android:id="@+id/et_new_task_title"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/background"
@@ -90,16 +78,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ladel"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/calendar"
-        app:layout_constraintBottom_toBottomOf="@+id/chosen_task"
         android:textColorHint="@color/placeholder"
         android:hint="Новая задача"
         android:padding="15dp"
-
         android:textSize="22dp"
-
-
         />
+    <EditText
+
+        android:id="@+id/et_new_task_desc"
+        android:layout_width="330dp"
+        android:textColor="@color/text"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_new_task_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColorHint="@color/placeholder"
+        android:hint="Описание"
+        android:padding="15dp"
+        android:textSize="22dp"
+        />
+
+
+    <CheckBox
+        android:id="@+id/checkBox_is_chosen"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:button="@android:drawable/btn_star_big_off"
+        android:layout_marginStart="10dp"
+        android:theme="@style/CheckboxStyle"
+        app:layout_constraintTop_toTopOf="@id/calendar"
+        app:layout_constraintStart_toStartOf="@id/et_new_task_desc"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
