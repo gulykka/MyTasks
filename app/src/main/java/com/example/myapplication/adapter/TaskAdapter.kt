@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.models.TaskModel
+import com.example.myapplication.screens.start.StartFragment
 import kotlinx.android.synthetic.main.task.view.*
 
 class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
@@ -25,6 +27,7 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
         holder.itemView.task_title.text = listTask[position].title_task
         holder.itemView.checkBox_is_chosen.isChecked = listTask[position].chosen
         holder.itemView.checkBox_is_performed.isChecked = listTask[position].performed
+
     }
 
     override fun getItemCount(): Int {
@@ -35,5 +38,17 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
     fun setList(list:List<TaskModel>) {
         listTask = list
         notifyDataSetChanged()
+    }
+
+    override fun onViewAttachedToWindow(holder: TaskViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        holder.itemView.setOnClickListener{
+            StartFragment.clickTask(listTask[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: TaskViewHolder) {
+        holder.itemView.setOnClickListener(null)
+
     }
 }

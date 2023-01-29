@@ -12,7 +12,7 @@ import com.example.myapplication.APP
 import com.example.myapplication.R
 import com.example.myapplication.adapter.TaskAdapter
 import com.example.myapplication.databinding.FragmentStartBinding
-
+import com.example.myapplication.models.TaskModel
 
 
 class StartFragment : Fragment() {
@@ -46,8 +46,19 @@ class StartFragment : Fragment() {
 
 
         binding.buttonNewTask.setOnClickListener {
-            Log.e("AAA", "666")
             APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment2)
+        }
+
+        
+    }
+
+    companion object {
+        fun clickTask(taskModel: TaskModel){
+            val bundle = Bundle()
+            bundle.putSerializable("task", taskModel)
+            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
+
+
         }
     }
 
