@@ -45,6 +45,7 @@
         app:backgroundTintMode="multiply"
         />
 
+
     <EditText
         android:hint="Title"
         android:textColorHint="@color/placeholder"

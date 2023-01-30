@@ -32,6 +32,12 @@ class StartViewModel(application: Application):AndroidViewModel(application) {
         return REPOSITOTYLIST.allLists
     }
 
+    fun getMyTasks():LiveData<List<TaskModel>> {
+        return REPOSITORY.allMyTasks
+    }
+
+
+
 
 
     public fun update(taskModel: TaskModel, onSuccess:() -> Unit) =

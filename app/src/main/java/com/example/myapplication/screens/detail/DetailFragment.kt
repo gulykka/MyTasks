@@ -40,9 +40,10 @@ class DetailFragment : Fragment() {
         binding.checkBoxTask.isChecked = currentTask.chosen
         binding.checkBoxIsPerformed.isChecked = currentTask.performed
 
+
+
         binding.buttonDeleteTask.setOnClickListener {
             viewModel.delete(currentTask){}
-
             APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
         }
 

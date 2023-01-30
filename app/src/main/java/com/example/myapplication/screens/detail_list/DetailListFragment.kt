@@ -67,7 +67,7 @@ class DetailListFragment : Fragment() {
         binding.buttonNewTask.setOnClickListener{
             val bundle = Bundle()
             bundle.putSerializable("list", currentList)
-            APP.navController.navigate(R.id.action_detailListFragment2_to_addTaskFragment, bundle)
+            APP.navController.navigate(R.id.action_detailListFragment2_to_newTaskFragment, bundle)
         }
 
 

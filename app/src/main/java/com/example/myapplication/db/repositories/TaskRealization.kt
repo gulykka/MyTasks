@@ -23,6 +23,8 @@ class TaskRealization(private val taskDao: TaskDao):TaskRepository {
         return taskDao.getListTasks(id)
     }
 
+
+
     override suspend fun deleteTask(taskModel: TaskModel, onSuccess: () -> Unit) {
         taskDao.delete(taskModel)
         onSuccess()
@@ -32,5 +34,6 @@ class TaskRealization(private val taskDao: TaskDao):TaskRepository {
         taskDao.update(taskModel)
         onSuccess()
     }
+
 
 }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.APP
 import com.example.myapplication.R
 import com.example.myapplication.models.TaskModel
-import com.example.myapplication.screens.my.MyFavoriteFragment
 import com.example.myapplication.screens.start.StartFragment
 import kotlinx.android.synthetic.main.task.view.*
 
@@ -28,7 +27,12 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
         holder.itemView.task_title.text = listTask[position].title_task
         holder.itemView.checkBox_is_chosen.isChecked = listTask[position].chosen
         holder.itemView.checkBox_is_performed.isChecked = listTask[position].performed
-
+        holder.itemView.checkBox_is_chosen.setOnClickListener{
+            Toast.makeText(APP, "" + position, Toast.LENGTH_SHORT).show()
+        }
+        holder.itemView.checkBox_is_performed.setOnClickListener{
+            Toast.makeText(APP, "" + position, Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -45,13 +49,14 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
     override fun onViewAttachedToWindow(holder: TaskViewHolder) {
         super.onViewAttachedToWindow(holder)
 
+//        holder.itemView.setOnClickListener{
+//            StartFragment.changeTask(listTask[holder.adapterPosition])
+//        }
 
         holder.itemView.setOnClickListener{
             StartFragment.clickTask(listTask[holder.adapterPosition])
         }
     }
-
-
 
     override fun onViewDetachedFromWindow(holder: TaskViewHolder) {
         holder.itemView.setOnClickListener(null)

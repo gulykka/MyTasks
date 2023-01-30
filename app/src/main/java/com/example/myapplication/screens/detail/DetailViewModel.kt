@@ -1,5 +1,6 @@
 package com.example.myapplication.screens.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.REPOSITORY
@@ -22,5 +23,6 @@ class DetailViewModel:ViewModel() {
                 onSuccess()
             }
         }
+
 
 }
