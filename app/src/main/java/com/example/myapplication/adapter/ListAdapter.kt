@@ -1,12 +1,13 @@
 package com.example.myapplication.adapter
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.models.ListModel
-import com.example.myapplication.models.TaskModel
 import kotlinx.android.synthetic.main.list.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
@@ -22,12 +23,14 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.itemView.list_title.text = listList[position].title_list
+        Log.e("AAA", "000")
     }
 
     override fun getItemCount(): Int {
         return listList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setList(list:List<ListModel>) {
         listList = list
         notifyDataSetChanged()

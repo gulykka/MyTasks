@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.APP
 import com.example.myapplication.R
+import com.example.myapplication.adapter.ListAdapter
 import com.example.myapplication.adapter.TaskAdapter
 import com.example.myapplication.databinding.FragmentStartBinding
 import com.example.myapplication.models.TaskModel
@@ -18,8 +19,11 @@ import com.example.myapplication.models.TaskModel
 class StartFragment : Fragment() {
 
     lateinit var binding: FragmentStartBinding
-    lateinit var adapter: TaskAdapter
+    lateinit var adapter_task: TaskAdapter
     lateinit var recyclerView: RecyclerView
+    lateinit var adapter_list: ListAdapter
+    lateinit var recyclerView_list: RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +35,7 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         init()
     }
 
@@ -38,19 +43,35 @@ class StartFragment : Fragment() {
         val viewModel = ViewModelProvider(this)[StartViewModel::class.java]
         viewModel.initDatabase()
         recyclerView = binding.rvTasks
-        adapter = TaskAdapter()
-        recyclerView.adapter = adapter
+        adapter_task = TaskAdapter()
+        recyclerView_list = binding.rvList
+        adapter_list = ListAdapter()
+
+
+        recyclerView.adapter = adapter_task
         viewModel.getAllTasks().observe(viewLifecycleOwner) { listTasks ->
-            adapter.setList(listTasks.reversed())
+            Log.e("AAA", "999")
+            adapter_task.setList(listTasks.reversed())
+        }
+        recyclerView_list.adapter = adapter_list
+        viewModel.getAllLists().observe(viewLifecycleOwner) { listLists ->
+            Log.e("AAAA", ")))")
+            adapter_list.setList(listLists.reversed()
+            )
         }
 
+
+        binding.addNewlistButton.setOnClickListener{
+            APP.navController.navigate(R.id.action_startFragment_to_addListFragment2)
+        }
 
         binding.buttonNewTask.setOnClickListener {
             APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment2)
         }
 
-        
+
     }
+
 
     companion object {
         fun clickTask(taskModel: TaskModel){
@@ -58,8 +79,26 @@ class StartFragment : Fragment() {
             bundle.putSerializable("task", taskModel)
             APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
 
+        }
+
+        fun changeTask(taskModel: TaskModel){
+            val bundle = Bundle()
+            bundle.putSerializable("task", taskModel)
+            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
 
         }
+//        fun changeTask(taskModel: TaskModel) {
+//            Log.e("AAA", taskModel.id_task.toString())
+//            val updateTask = TaskModel(id_task = taskModel.id_task, title_task = taskModel.title_task, chosen = !taskModel.chosen)
+//            val viewModel = ViewModelProvider(this)[StartViewModel::class.java]
+//            viewModel.initDatabase()
+//            viewModel.update(updateTask){}
+//        }
+//
+//        private fun ViewModelProvider(owner: StartFragment.Companion): ViewModelProvider {
+//        }
     }
 
-}
+
+    }
+

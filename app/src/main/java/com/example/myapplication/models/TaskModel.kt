@@ -1,5 +1,6 @@
 package com.example.myapplication.models
 
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

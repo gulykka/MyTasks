@@ -7,7 +7,7 @@ import com.example.myapplication.models.ListModel
 interface ListDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(listModel: ListModel)
+    suspend fun insert(listModel: ListModel): Long
 
     @Delete
     suspend fun delete(listModel: ListModel)
@@ -16,5 +16,6 @@ interface ListDao {
     suspend fun update(listModel: ListModel)
 
     @Query("SELECT * FROM list_table")
-    fun getAllTasks(): LiveData<List<ListModel>>
+    fun getAllLists(): LiveData<List<ListModel>>
+
 }

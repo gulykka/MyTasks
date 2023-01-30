@@ -32,7 +32,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/newlist"
+        app:layout_constraintTop_toBottomOf="@id/new_list"
         app:layout_constraintBaseline_toBottomOf="parent"
         android:background="@color/menu_down"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,10 +50,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/newlist"
+        app:layout_constraintBottom_toTopOf="@+id/new_list"
         />
     <EditText
-        android:id="@+id/newlist"
+        android:id="@+id/new_list"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/background"

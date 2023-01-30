@@ -8,7 +8,7 @@ interface ListRepository {
 
     val allLists: LiveData<List<ListModel>>
 
-    suspend fun insertList(taskModel: ListModel, onSuccess:() -> Unit)
-    suspend fun deleteList(taskModel: ListModel, onSuccess:() -> Unit)
-    suspend fun updateList(taskModel: ListModel, onSuccess:() -> Unit)
+    suspend fun insertList(listModel: ListModel, onSuccess:() -> Unit)
+    suspend fun deleteList(listModel: ListModel, onSuccess:() -> Unit)
+    suspend fun updateList(listModel: ListModel, onSuccess:() -> Unit)
 }

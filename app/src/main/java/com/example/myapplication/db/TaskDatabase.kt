@@ -9,7 +9,7 @@ import com.example.myapplication.models.ListModel
 import com.example.myapplication.models.TaskModel
 
 
-@Database(entities = [TaskModel::class, ListModel::class], version = 2)
+@Database(entities = [TaskModel::class, ListModel::class], version = 1)
 abstract class TasksDatabase: RoomDatabase() {
 
     abstract fun getTaskDao(): TaskDao
@@ -21,7 +21,9 @@ abstract class TasksDatabase: RoomDatabase() {
         @Synchronized
         fun getInstance(context: Context): TasksDatabase {
             return if (database == null){
-                database = Room.databaseBuilder(context, TasksDatabase::class.java, "db").build()
+                database = Room.databaseBuilder(context, TasksDatabase::class.java, "db")
+                    .fallbackToDestructiveMigration()
+                    .build()
                 database as TasksDatabase
             }else{
                 database as TasksDatabase
