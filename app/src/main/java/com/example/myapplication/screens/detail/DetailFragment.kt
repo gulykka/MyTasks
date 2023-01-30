@@ -1,14 +1,11 @@
 package com.example.myapplication.screens.detail
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.APP
-import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDetailBinding
 import com.example.myapplication.models.TaskModel
 
@@ -43,7 +40,7 @@ class DetailFragment : Fragment() {
         binding.buttonDeleteTask.setOnClickListener {
             viewModel.delete(currentTask){}
 
-            APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
+//            APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
         }
 
         binding.buttonBack.setOnClickListener{
@@ -52,7 +49,7 @@ class DetailFragment : Fragment() {
             val chosen_new = binding.checkBoxTask.isChecked
             val updateTask = TaskModel(currentTask.id_task, title_task = title_new, description = description_new, chosen = chosen_new)
             viewModel.update(updateTask){}
-            APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
+//            APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
         }
 
 

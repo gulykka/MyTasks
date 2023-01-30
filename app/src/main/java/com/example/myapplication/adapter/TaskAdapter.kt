@@ -1,7 +1,6 @@
 package com.example.myapplication.adapter
 
 import  android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,9 +49,9 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
     override fun onViewAttachedToWindow(holder: TaskViewHolder) {
         super.onViewAttachedToWindow(holder)
 
-        holder.itemView.setOnClickListener{
-            StartFragment.changeTask(listTask[holder.adapterPosition])
-        }
+//        holder.itemView.setOnClickListener{
+//            StartFragment.changeTask(listTask[holder.adapterPosition])
+//        }
 
         holder.itemView.setOnClickListener{
             StartFragment.clickTask(listTask[holder.adapterPosition])

@@ -18,4 +18,9 @@ interface TaskDao {
     @Query("SELECT * FROM task_table")
     fun getAllTasks():LiveData<List<TaskModel>>
 
+    @Query("SELECT * FROM task_table WHERE number_list IS NULL")
+    fun getMyTasks():LiveData<List<TaskModel>>
+
+    @Query("SELECT * FROM task_table WHERE chosen = 1")
+    fun getChosenTasks():LiveData<List<TaskModel>>
 }

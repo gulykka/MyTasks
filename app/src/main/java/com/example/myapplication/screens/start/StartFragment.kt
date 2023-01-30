@@ -13,6 +13,7 @@ import com.example.myapplication.R
 import com.example.myapplication.adapter.ListAdapter
 import com.example.myapplication.adapter.TaskAdapter
 import com.example.myapplication.databinding.FragmentStartBinding
+import com.example.myapplication.models.ListModel
 import com.example.myapplication.models.TaskModel
 
 
@@ -50,12 +51,11 @@ class StartFragment : Fragment() {
 
         recyclerView.adapter = adapter_task
         viewModel.getAllTasks().observe(viewLifecycleOwner) { listTasks ->
-            Log.e("AAA", "999")
             adapter_task.setList(listTasks.reversed())
         }
         recyclerView_list.adapter = adapter_list
         viewModel.getAllLists().observe(viewLifecycleOwner) { listLists ->
-            Log.e("AAAA", ")))")
+
             adapter_list.setList(listLists.reversed()
             )
         }
@@ -69,6 +69,9 @@ class StartFragment : Fragment() {
             APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment2)
         }
 
+        binding.chosenTaskButton.setOnClickListener{
+            APP.navController.navigate(R.id.action_startFragment_to_myFavoriteFragment)
+        }
 
     }
 
@@ -77,14 +80,14 @@ class StartFragment : Fragment() {
         fun clickTask(taskModel: TaskModel){
             val bundle = Bundle()
             bundle.putSerializable("task", taskModel)
-            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
+//            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
 
         }
 
-        fun changeTask(taskModel: TaskModel){
+        fun clickList(listModel: ListModel){
             val bundle = Bundle()
-            bundle.putSerializable("task", taskModel)
-            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
+            bundle.putSerializable("list", listModel)
+            APP.navController.navigate(R.id.action_startFragment_to_detailListFragment2, bundle)
 
         }
 //        fun changeTask(taskModel: TaskModel) {

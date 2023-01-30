@@ -1,14 +1,18 @@
 package com.example.myapplication.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.APP
 import com.example.myapplication.R
 import com.example.myapplication.models.ListModel
+import com.example.myapplication.screens.start.StartFragment
+import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.list.view.*
+import kotlinx.android.synthetic.main.task.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
@@ -23,7 +27,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.itemView.list_title.text = listList[position].title_list
-        Log.e("AAA", "000")
+
     }
 
     override fun getItemCount(): Int {
@@ -36,4 +40,17 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         notifyDataSetChanged()
     }
 
+    override fun onViewAttachedToWindow(holder: ListViewHolder) {
+        super.onViewAttachedToWindow(holder)
+
+
+        holder.itemView.setOnClickListener{
+            StartFragment.clickList(listList[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: ListViewHolder) {
+        holder.itemView.setOnClickListener(null)
+
+    }
 }
