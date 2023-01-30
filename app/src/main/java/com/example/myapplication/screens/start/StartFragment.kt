@@ -80,7 +80,7 @@ class StartFragment : Fragment() {
         fun clickTask(taskModel: TaskModel){
             val bundle = Bundle()
             bundle.putSerializable("task", taskModel)
-//            APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
+           APP.navController.navigate(R.id.action_startFragment_to_detailFragment, bundle)
 
         }
 
