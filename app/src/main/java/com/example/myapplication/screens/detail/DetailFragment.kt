@@ -49,7 +49,8 @@ class DetailFragment : Fragment() {
             val title_new = binding.titleTask.getText().toString()
             val description_new = binding.descriptionTask.getText().toString()
             val chosen_new = binding.checkBoxTask.isChecked
-            val updateTask = TaskModel(currentTask.id_task, title_task = title_new, description = description_new, chosen = chosen_new)
+            val perf_new = binding.checkBoxIsPerformed.isChecked
+            val updateTask = TaskModel(currentTask.id_task, title_task = title_new, description = description_new, chosen = chosen_new, performed = perf_new)
             viewModel.update(updateTask){}
             APP.navController.navigate(R.id.action_detailFragment_to_startFragment)
         }

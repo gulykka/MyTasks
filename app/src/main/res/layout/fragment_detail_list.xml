@@ -50,5 +50,30 @@
         />
 
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="85dp"
+        android:background="@color/menu_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_new_task"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/create_task_button"
+        app:backgroundTint="#FFFFFF"
+        app:backgroundTintMode="multiply"
+        android:text="+"
+        android:textSize="35dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openAddTask"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

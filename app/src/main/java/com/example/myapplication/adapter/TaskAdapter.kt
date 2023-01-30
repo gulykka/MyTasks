@@ -45,9 +45,6 @@ class TaskAdapter: RecyclerView.Adapter <TaskAdapter.TaskViewHolder>() {
     override fun onViewAttachedToWindow(holder: TaskViewHolder) {
         super.onViewAttachedToWindow(holder)
 
-//        holder.itemView.setOnClickListener{
-//            MyFavoriteFragment.clickTask(listTask[holder.adapterPosition])
-//        }
 
         holder.itemView.setOnClickListener{
             StartFragment.clickTask(listTask[holder.adapterPosition])

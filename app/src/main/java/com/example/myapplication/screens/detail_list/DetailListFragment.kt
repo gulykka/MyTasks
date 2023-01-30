@@ -53,6 +53,10 @@ class DetailListFragment : Fragment() {
             viewModel.delete(currentList){}
             APP.navController.navigate(R.id.action_detailListFragment2_to_startFragment)
         }
+
+        binding.buttonNewTask.setOnClickListener{
+            APP.navController.navigate(R.id.action_detailListFragment2_to_addTaskFragment,)
+        }
     }
 
     companion object
