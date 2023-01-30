@@ -38,6 +38,7 @@ class DetailFragment : Fragment() {
         binding.titleTask.setText(currentTask.title_task)
         binding.descriptionTask.setText(currentTask.description)
         binding.checkBoxTask.isChecked = currentTask.chosen
+        binding.checkBoxIsPerformed.isChecked = currentTask.performed
 
         binding.buttonDeleteTask.setOnClickListener {
             viewModel.delete(currentTask){}

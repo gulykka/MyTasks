@@ -7,6 +7,8 @@ interface TaskRepository {
     val allTasks: LiveData<List<TaskModel>>
     val allMyTasks: LiveData<List<TaskModel>>
     val allChosenTasks: LiveData<List<TaskModel>>
+    fun allListTasks(id: Int): LiveData<List<TaskModel>>
+
 
 
     suspend fun insertTask(taskModel: TaskModel, onSuccess:() -> Unit)

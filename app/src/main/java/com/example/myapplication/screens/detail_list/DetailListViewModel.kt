@@ -1,5 +1,6 @@
 package com.example.myapplication.screens.detail_list
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.REPOSITORY
@@ -23,4 +24,15 @@ class DetailListViewModel: ViewModel() {
                 onSuccess()
             }
         }
+
+    fun insert(taskModel: TaskModel, onSuccess:() -> Unit) =
+        viewModelScope.launch (Dispatchers.IO ) {
+            REPOSITORY.insertTask(taskModel){
+                onSuccess()
+            }
+        }
+
+    fun getListTasks(id: Int): LiveData<List<TaskModel>> {
+        return REPOSITORY.allListTasks(id)
+    }
 }

@@ -19,6 +19,9 @@ class TaskRealization(private val taskDao: TaskDao):TaskRepository {
         taskDao.insert(taskModel)
         onSuccess()
     }
+    override fun allListTasks(id: Int): LiveData<List<TaskModel>> {
+        return taskDao.getListTasks(id)
+    }
 
     override suspend fun deleteTask(taskModel: TaskModel, onSuccess: () -> Unit) {
         taskDao.delete(taskModel)
